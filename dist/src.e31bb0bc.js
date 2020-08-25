@@ -8884,309 +8884,16 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"components/carousel/Carousel.vue":[function(require,module,exports) {
+},{}],"components/app.vue":[function(require,module,exports) {
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  data: function data() {
-    return {
-      index: 0,
-      slides: []
-    };
-  },
-  computed: {
-    slidesCount: function slidesCount() {
-      return this.slides.length;
-    }
-  },
-  mounted: function mounted() {
-    this.slides = this.$children;
-    this.slides.forEach(function (slide, i) {
-      slide.index = i++;
-    });
-  },
-  methods: {
-    next: function next() {
-      //incrementation de bouton next
-      this.index++;
-
-      if (this.index == this.slidesCount) {
-        this.index = 0;
-      }
-    },
-    prev: function prev() {
-      //incrementation du bouton prev
-      this.index--;
-
-      if (this.index < 0) {
-        this.index = this.slidesCount - 1;
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $86ac72 = exports.default || module.exports;
-      
-      if (typeof $86ac72 === 'function') {
-        $86ac72 = $86ac72.options;
-      }
-    
-        /* template */
-        Object.assign($86ac72, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _vm._t("default"),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "button",
-          {
-            staticClass:
-              "button button-hieght is-boxed carousel carousel__nav carousel__prev column sg-prev",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.prev($event)
-              }
-            }
-          },
-          [_vm._v("Prev")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "button button-hieght is-boxed carousel carousel__nav carousel__next column sg-next",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.next($event)
-              }
-            }
-          },
-          [_vm._v("Next")]
-        )
-      ])
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: null,
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$86ac72', $86ac72);
-          } else {
-            api.reload('$86ac72', $86ac72);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/carousel/CarouselSlide.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  data: function data() {
-    return {
-      index: 0
-    };
-  },
-  computed: {
-    visible: function visible() {
-      return this.index === this.$parent.index;
-    }
-  }
-};
-exports.default = _default;
-        var $f03861 = exports.default || module.exports;
-      
-      if (typeof $f03861 === 'function') {
-        $f03861 = $f03861.options;
-      }
-    
-        /* template */
-        Object.assign($f03861, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "slide" } }, [
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.visible,
-            expression: "visible"
-          }
-        ]
-      },
-      [_vm._t("default")],
-      2
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: null,
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$f03861', $f03861);
-          } else {
-            api.reload('$f03861', $f03861);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/app.vue":[function(require,module,exports) {
-"use strict";
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  data: function data() {
-    return {
-      bundler: "Sarah Guillaume",
-      jobs: "Web developer",
-      home: "Contact me",
-      competence: "Compétences",
-      experience: "Expériences Professionnelles",
-      formation: "Formations"
-    };
-  },
-  components: {
-    //important des elements
-    Carousel: function Carousel() {
-      return Promise.resolve().then(function () {
-        return __importStar(require("./carousel/Carousel.vue"));
-      });
-    },
-    CarouselSlide: function CarouselSlide() {
-      return Promise.resolve().then(function () {
-        return __importStar(require("./carousel/CarouselSlide.vue"));
-      });
-    }
+  components: {//important des elements
+    // Carousel: () => import("./carousel/Carousel.vue"),
+    // CarouselSlide: () => import("./carousel/CarouselSlide.vue"),
   }
 };
         var $eed2c4 = exports.default || module.exports;
@@ -9201,28 +8908,18 @@ exports.default = {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c(
-        "carousel",
-        [
-          _c("CarouselSlide", [_c("div", { staticClass: "box" })]),
-          _vm._v(" "),
-          _c("CarouselSlide", [_c("div", { staticClass: "box" })]),
-          _vm._v(" "),
-          _c("CarouselSlide", [_c("div", { staticClass: "box" })]),
-          _vm._v(" "),
-          _c("CarouselSlide", [_c("div", { staticClass: "box" })])
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("h1", { staticClass: "title" }, [_vm._v("Hello World")])
+    ])
+  }
+]
 render._withStripped = true
 
           return {
@@ -9255,21 +8952,31 @@ render._withStripped = true
       
       }
     })();
-},{"./carousel/Carousel.vue":"components/carousel/Carousel.vue","./carousel/CarouselSlide.vue":"components/carousel/CarouselSlide.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"../node_modules/bulma/bulma.sass":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
 var _app = _interopRequireDefault(require("./components/app.vue"));
 
+require("bulma");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// new Vue({ render: (createElement) => createElement(App) }).$mount("#app");
 new _vue.default({
-  render: function render(createElement) {
-    return createElement(_app.default);
+  el: "#app",
+  render: function render(h) {
+    return h(_app.default);
   }
-}).$mount("#app");
-},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./components/app.vue":"components/app.vue"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+});
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./components/app.vue":"components/app.vue","bulma":"../node_modules/bulma/bulma.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

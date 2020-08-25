@@ -1,13 +1,13 @@
 <template>
-  <div class>
+  <div>
     <slot></slot>
     <div>
       <button
-        class="button button-hieght is-boxed carousel carousel__nav carousel__prev column sg-prev"
+        class="button is-boxed carousel carousel__nav carousel__prev column sg-prev"
         @click.prevent="prev"
       >Prev</button>
       <button
-        class="button button-hieght is-boxed carousel carousel__nav carousel__next column sg-next"
+        class="button is-boxed carousel carousel__nav carousel__next column sg-next"
         @click.prevent="next"
       >Next</button>
     </div>
@@ -72,32 +72,15 @@ export default {
 button {
   background: white !important;
   color: #646363 !important;
-  font-size: 35px !important;
+  font-size: 25px !important;
   border: none;
-}
-
-.button-hieght {
-  margin-top: 50vh !important; /* poussé de la moitié de hauteur de viewport */
-  transform: translateY(-145%) !important;
 }
 
 .sg-next {
   float: right;
-  margin-right: -9px;
-  margin-top: 150px;
 }
 
 .sg-prev {
   float: left;
-  margin-left: -9px;
-  margin-top: 150px;
-}
-
-.size-sg {
-  font-size: 70px;
-}
-
-.sg-align {
-  top: -12px;
 }
 </style>
