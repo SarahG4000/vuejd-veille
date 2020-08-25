@@ -1,0 +1,58 @@
+{
+  "name": "@sarahg4000/cv-vuejs",
+  "version": "0.0.1",
+  "description": "Cv en ligne avec vue.js",
+  "main": "index.html",
+  "private": false,
+  "scripts": {
+    "lint": "npx eslint --fix --cache src",
+    "build": "npx parcel build src/index.html",
+    "work": "npx parcel src/index.html --log-level 4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahG4000/cv-vuejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahG4000/cv-vuejs/issues"
+  },
+  "homepage": "https://github.com/SarahG4000/cv-vuejs#readme",
+  "dependencies": {
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4"
+  },
+  "devDependencies": {
+    "@becode/eslint-config": "^0.10.0",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "babel-eslint": "^10.1.0",
+    "bulma": "^0.9.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-unicorn": "^20.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.5",
+    "pug": "^3.0.0",
+    "sass": "^1.26.10",
+    "typescript": "^3.9.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "lint-staged": {
+    "*.json": [
+      "npx prettier --write"
+    ],
+    "*.js": [
+      "npx eslint --fix --cache"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  }
+}
