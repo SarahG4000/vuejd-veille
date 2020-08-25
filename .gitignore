@@ -1,0 +1,4 @@
+.cache
+.history
+.vscode
+node_modules
