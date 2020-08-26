@@ -8935,9 +8935,13 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
+      teste1: "pffffff!",
+      teste2: "nooooooo!",
       todos: [{
         name: "Tâche de test",
         completed: false
@@ -9008,7 +9012,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "todoapp columns" }, [
     _c("header", { staticClass: "header column is-half" }, [
-      _c("h1", { staticClass: "title is-centered" }, [_vm._v("Todo :")]),
+      _c("h1", { staticClass: "title" }, [_vm._v("Todo :")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -9304,16 +9308,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h1", { staticClass: "title" }, [_vm._v(_vm._s(_vm.bundler))]),
-      _vm._v(" "),
-      _c("todos")
-    ],
-    1
-  )
+  return _c("div", { staticClass: "container" }, [_c("todos")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -9400,7 +9395,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46635" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35559" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

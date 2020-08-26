@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">{{bundler}}</h1>
+    <!-- <h1 class="title">{{bundler}}</h1> -->
     <todos></todos>
   </div>
 </template>

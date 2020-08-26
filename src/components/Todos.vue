@@ -1,7 +1,9 @@
 <template>
   <section class="todoapp columns">
     <header class="header column is-half">
-      <h1 class="title is-centered">Todo :</h1>
+      <h1 class="title">Todo :</h1>
+      <!-- <h1 class="title sg-moins1" v-show="todos.length > 0">{{teste1}}</h1>
+      <h1 class="title sg-moins2" v-show="todos.length > 1">{{teste2}}</h1>-->
       <input
         class="input new-todo"
         v-model="newTodo"
@@ -14,7 +16,7 @@
       <input type="checkbox" v-model="allDone" class="toggle" placeholder="All" />
       <label>All</label>
       <ul class="todo-list">
-        <li class="todo" v-for="todo in filteredTodos" v-bind:class="{completed: todo.completed}">
+        <li v-for="todo in filteredTodos" class="todo" :class="{completed: todo.completed}">
           <div class="view">
             <input type="checkbox" v-model="todo.completed" class="toggle" />
             <label>{{todo.name}}</label>
@@ -46,6 +48,8 @@
 export default {
   data() {
     return {
+      teste1: "pffffff!",
+      teste2: "nooooooo!",
       todos: [
         {
           name: "Tâche de test",
@@ -97,6 +101,15 @@ export default {
 </script>
 
 <style>
+.sg-moins1 {
+  margin-top: 50px;
+  color: #ca4e4e !important;
+}
+.sg-moins2 {
+  margin-top: 100px;
+  color: #c51212 !important;
+}
+
 .todoapp {
   background: #fff;
   margin: 130px 0 40px 0 !important;
