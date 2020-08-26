@@ -8884,42 +8884,350 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"components/app.vue":[function(require,module,exports) {
+},{}],"components/Todos.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = {
-  components: {//important des elements
-    // Carousel: () => import("./carousel/Carousel.vue"),
-    // CarouselSlide: () => import("./carousel/CarouselSlide.vue"),
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      todos: [{
+        name: "Tâche de test",
+        completed: false
+      }],
+      newTodo: "",
+      filter: "all"
+    };
+  },
+  methods: {
+    addTodo: function addTodo() {
+      this.todos.push({
+        completed: false,
+        name: this.newTodo
+      });
+      this.newTodo = "";
+    },
+    deleteTodo: function deleteTodo(todo) {
+      this.todos = this.todos.filter(function (i) {
+        return i != todo;
+      });
+    }
+  },
+  computed: {
+    allDone: {
+      get: function get() {
+        return this.remaining === 0;
+      },
+      set: function set(value) {
+        if (value === true) {
+          this.todos.forEach(function (todo) {
+            todo.completed = value;
+          });
+        }
+      }
+    },
+    remaining: function remaining() {
+      return this.todos.filter(function (todo) {
+        return !todo.completed;
+      }).length;
+    },
+    filteredTodos: function filteredTodos() {
+      if (this.filter === "todo") {
+        return this.todos.filter(function (todo) {
+          return !todo.completed;
+        });
+      } else if (this.filter === "done") {
+        return this.todos.filter(function (todo) {
+          return todo.completed;
+        });
+      }
+
+      return this.todos;
+    }
   }
 };
-        var $eed2c4 = exports.default || module.exports;
+exports.default = _default;
+        var $1d1c71 = exports.default || module.exports;
       
-      if (typeof $eed2c4 === 'function') {
-        $eed2c4 = $eed2c4.options;
+      if (typeof $1d1c71 === 'function') {
+        $1d1c71 = $1d1c71.options;
       }
     
         /* template */
-        Object.assign($eed2c4, (function () {
+        Object.assign($1d1c71, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "todoapp columns" }, [
+    _c("header", { staticClass: "header column is-half" }, [
+      _c("h1", { staticClass: "title is-centered" }, [_vm._v("Todo :")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.newTodo,
+            expression: "newTodo"
+          }
+        ],
+        staticClass: "input new-todo",
+        attrs: { type: "text", placeholder: "Ajouter une tâche" },
+        domProps: { value: _vm.newTodo },
+        on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.addTodo($event)
+          },
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.newTodo = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "main" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.allDone,
+            expression: "allDone"
+          }
+        ],
+        staticClass: "toggle",
+        attrs: { type: "checkbox", placeholder: "All" },
+        domProps: {
+          checked: Array.isArray(_vm.allDone)
+            ? _vm._i(_vm.allDone, null) > -1
+            : _vm.allDone
+        },
+        on: {
+          change: function($event) {
+            var $$a = _vm.allDone,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false
+            if (Array.isArray($$a)) {
+              var $$v = null,
+                $$i = _vm._i($$a, $$v)
+              if ($$el.checked) {
+                $$i < 0 && (_vm.allDone = $$a.concat([$$v]))
+              } else {
+                $$i > -1 &&
+                  (_vm.allDone = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+              }
+            } else {
+              _vm.allDone = $$c
+            }
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("All")]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "todo-list" },
+        _vm._l(_vm.filteredTodos, function(todo) {
+          return _c(
+            "li",
+            { staticClass: "todo", class: { completed: todo.completed } },
+            [
+              _c("div", { staticClass: "view" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: todo.completed,
+                      expression: "todo.completed"
+                    }
+                  ],
+                  staticClass: "toggle",
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(todo.completed)
+                      ? _vm._i(todo.completed, null) > -1
+                      : todo.completed
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = todo.completed,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(todo, "completed", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              todo,
+                              "completed",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(todo, "completed", $$c)
+                      }
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", [_vm._v(_vm._s(todo.name))]),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "destroy",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.deleteTodo(todo)
+                    }
+                  }
+                })
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "footer",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.todos.length > 0,
+            expression: "todos.length > 0"
+          }
+        ],
+        staticClass: "footer"
+      },
+      [
+        _c("span", { staticClass: "todo-count" }, [
+          _c("strong", [_vm._v(_vm._s(_vm.remaining))]),
+          _vm._v(" Tâche à faire\n    ")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "filters" }, [
+          _c("li", [
+            _c(
+              "a",
+              {
+                class: { selected: _vm.filter === "all" },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.filter = "all"
+                  }
+                }
+              },
+              [_vm._v("Toutes")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                class: { selected: _vm.filter === "todo" },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.filter = "todo"
+                  }
+                }
+              },
+              [_vm._v("A faire")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                class: { selected: _vm.filter === "done" },
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.filter = "done"
+                  }
+                }
+              },
+              [_vm._v("faites")]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h1", { staticClass: "title" }, [_vm._v("Hello World")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -8939,9 +9247,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$eed2c4', $eed2c4);
+            api.createRecord('$1d1c71', $1d1c71);
           } else {
-            api.reload('$eed2c4', $eed2c4);
+            api.reload('$1d1c71', $1d1c71);
           }
         }
 
@@ -8952,7 +9260,95 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"../node_modules/bulma/bulma.sass":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"app.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+var _Todos = _interopRequireDefault(require("./components/Todos"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      bundler: "Hello wordl"
+    };
+  },
+  components: {
+    Todos: _Todos.default
+  }
+};
+exports.default = _default;
+        var $b25aae = exports.default || module.exports;
+      
+      if (typeof $b25aae === 'function') {
+        $b25aae = $b25aae.options;
+      }
+    
+        /* template */
+        Object.assign($b25aae, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h1", { staticClass: "title" }, [_vm._v(_vm._s(_vm.bundler))]),
+      _vm._v(" "),
+      _c("todos")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$b25aae', $b25aae);
+          } else {
+            api.reload('$b25aae', $b25aae);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./components/Todos":"components/Todos.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js"}],"../node_modules/bulma/bulma.sass":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -8963,7 +9359,7 @@ render._withStripped = true
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _app = _interopRequireDefault(require("./components/app.vue"));
+var _app = _interopRequireDefault(require("./app.vue"));
 
 require("bulma");
 
@@ -8976,7 +9372,7 @@ new _vue.default({
     return h(_app.default);
   }
 });
-},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./components/app.vue":"components/app.vue","bulma":"../node_modules/bulma/bulma.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./app.vue":"app.vue","bulma":"../node_modules/bulma/bulma.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -9004,7 +9400,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43503" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46635" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
